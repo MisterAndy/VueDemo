@@ -1,0 +1,23 @@
+# Spring配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vuedemo?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+server:
+  port: 8081
+shiro-redis:
+  enabled: true
+  redis-manager:
+    host: 127.0.0.1:6379
+# token配置
+token:
+  # 令牌自定义标识
+  header: Authorization
+  # 令牌密钥
+  secret: abcdefghijklmnopqrstuvwxyz
+  # 令牌有效期（默认30分钟）
+  expire: 30
