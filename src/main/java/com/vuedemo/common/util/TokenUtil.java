@@ -12,6 +12,8 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -51,13 +53,22 @@ public class TokenUtil {
         try {
             Date expireAt = new Date(startTime + expire * 60 * 1000);
             token = JWT.create().withIssuer("TengDi")// 发行人
-                .withClaim("userId", userId)// 存放数据
+                .withClaim("account", userId)// 存放数据
                 .withClaim("startTime", startTime).withExpiresAt(expireAt)// 过期时间
                 .sign(Algorithm.HMAC256(secret));
         } catch (IllegalArgumentException | JWTCreationException je) {
 
         }
         return token;
+    }
+
+    public Claims getClaimByToken(String token) {
+        try {
+            return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        } catch (Exception e) {
+            log.debug("validate is token error ", e);
+            return null;
+        }
     }
 
     /**
@@ -67,7 +78,7 @@ public class TokenUtil {
         try {
             String jwttoken = (String)token.getPrincipal();
             DecodedJWT decodedJWT = JWT.decode(jwttoken);
-            return decodedJWT.getClaim("userId").asString();
+            return decodedJWT.getClaim("account").asString();
 
         } catch (JWTCreationException e) {
             return null;

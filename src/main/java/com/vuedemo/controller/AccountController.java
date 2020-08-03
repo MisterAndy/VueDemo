@@ -19,7 +19,11 @@ import com.vuedemo.service.UserService;
 
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.crypto.SecureUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 
+@Api(tags = "1-登录管理")
 @RestController
 public class AccountController {
 
@@ -29,6 +33,8 @@ public class AccountController {
     @Autowired
     private TokenUtil tokenUtil;
 
+    @ApiOperation("用户登录")
+    @ApiImplicitParam(name = "loginUserDto", value = "用户信息", dataType = "LoginUserDto")
     @PostMapping("/login")
     public Result login(@Validated @RequestBody LoginUserDto loginUserDto, HttpServletResponse response) {
         User user = userService.getOne(new QueryWrapper<User>().eq("username", loginUserDto.getUsername()));

@@ -21,6 +21,7 @@ import com.vuedemo.common.http.Result;
 import com.vuedemo.common.util.TokenUtil;
 
 import cn.hutool.json.JSONUtil;
+import io.jsonwebtoken.Claims;
 
 /**
  * 自定义Jwt过滤器，过滤验证、登录等操作成功失败时做的事情
@@ -59,6 +60,7 @@ public class JwtFilter extends AuthenticatingFilter {
         } else {
 
             // 校验token
+            Claims claim = tokenUtil.getClaimByToken(token);
             if (!tokenUtil.verify(new JwtToken(token))) {
                 throw new ExpiredCredentialsException("token已失效，请重新登录");
             }
