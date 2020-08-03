@@ -2,7 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b7d30cd-333e-4e0c-8156-4bc44bc3e5a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/1.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/util/TokenUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VueDemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VueDemo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/config/ShiroConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/http/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/http/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/AccountProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/AccountProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/AccountRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/AccountRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/JwtToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/JwtToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/util/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/util/ShiroUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/config/ShiroConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/http/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/http/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/AccountProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/AccountProfile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/AccountRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/AccountRealm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/JwtFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/JwtFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/JwtToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/JwtToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/util/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/util/ShiroUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/util/ShiroUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +85,14 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="EclipseFormatter" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.vuedemo.common.config" />
       <recent name="com.vuedemo.common.exception" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -130,7 +170,10 @@
       <workItem from="1596172893361" duration="21000" />
       <workItem from="1596173425215" duration="10175000" />
       <workItem from="1596184258051" duration="2240000" />
-      <workItem from="1596186694473" duration="2586000" />
+      <workItem from="1596186694473" duration="2789000" />
+      <workItem from="1596416231228" duration="817000" />
+      <workItem from="1596417190163" duration="19653000" />
+      <workItem from="1596439631928" duration="9304000" />
     </task>
     <servers />
   </component>
@@ -138,10 +181,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="827" y="319" width="593" height="508" key="#Notifications" timestamp="1596168110151">
+    <state x="827" y="319" width="593" height="508" key="#Notifications" timestamp="1596416324018">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="827" y="319" width="593" height="508" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1596168110151" />
+    <state x="827" y="319" width="593" height="508" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1596416324018" />
     <state x="557" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596161446288">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -158,57 +201,97 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="688" y="361" width="549" height="345" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1596183263062" />
-    <state x="569" y="240" key="FileChooserDialogImpl" timestamp="1596167974621">
+    <state x="333" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596433456435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="569" y="240" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596167974621" />
-    <state width="1850" height="171" key="GridCell.Tab.0.bottom" timestamp="1596189223143">
+    <state x="333" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596433456435" />
+    <state width="406" height="761" key="DebuggerActiveHint" timestamp="1596441770794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="171" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596189223143" />
-    <state width="1850" height="171" key="GridCell.Tab.0.center" timestamp="1596189223143">
+    <state width="406" height="761" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1596441770794" />
+    <state x="569" y="240" key="FileChooserDialogImpl" timestamp="1596438405817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="171" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596189223143" />
-    <state width="1850" height="171" key="GridCell.Tab.0.left" timestamp="1596189223143">
+    <state x="569" y="240" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596438405817" />
+    <state width="1850" height="204" key="GridCell.Tab.0.bottom" timestamp="1596445167747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="171" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596189223143" />
-    <state width="1850" height="171" key="GridCell.Tab.0.right" timestamp="1596189223143">
+    <state width="1850" height="204" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
+    <state width="1850" height="204" key="GridCell.Tab.0.center" timestamp="1596445167747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="171" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596189223143" />
-    <state width="1850" height="171" key="GridCell.Tab.1.bottom" timestamp="1596189223143">
+    <state width="1850" height="204" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
+    <state width="1850" height="204" key="GridCell.Tab.0.left" timestamp="1596445167747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="171" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596189223143" />
-    <state width="1850" height="171" key="GridCell.Tab.1.center" timestamp="1596189223143">
+    <state width="1850" height="204" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
+    <state width="1850" height="204" key="GridCell.Tab.0.right" timestamp="1596445167747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="171" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596189223143" />
-    <state width="1850" height="171" key="GridCell.Tab.1.left" timestamp="1596189223143">
+    <state width="1850" height="204" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
+    <state width="1850" height="204" key="GridCell.Tab.1.bottom" timestamp="1596445167748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="171" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596189223143" />
-    <state width="1850" height="171" key="GridCell.Tab.1.right" timestamp="1596189223143">
+    <state width="1850" height="204" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167748" />
+    <state width="1850" height="204" key="GridCell.Tab.1.center" timestamp="1596445167747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="171" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596189223143" />
+    <state width="1850" height="204" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
+    <state width="1850" height="204" key="GridCell.Tab.1.left" timestamp="1596445167747">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1850" height="204" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
+    <state width="1850" height="204" key="GridCell.Tab.1.right" timestamp="1596445167748">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1850" height="204" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167748" />
+    <state width="1850" height="319" key="GridCell.Tab.2.bottom" timestamp="1596442073039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1850" height="319" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596442073039" />
+    <state width="1850" height="319" key="GridCell.Tab.2.center" timestamp="1596442073039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1850" height="319" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596442073039" />
+    <state width="1850" height="319" key="GridCell.Tab.2.left" timestamp="1596442073039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1850" height="319" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596442073039" />
+    <state width="1850" height="319" key="GridCell.Tab.2.right" timestamp="1596442073039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1850" height="319" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596442073039" />
     <state x="377" y="102" key="Maven.ArtifactSearchDialog" timestamp="1596189121950">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="377" y="102" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596189121950" />
-    <state x="241" y="102" key="SettingsEditor" timestamp="1596173777950">
+    <state x="139" y="42" width="1141" height="891" key="SettingsEditor" timestamp="1596439895654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="241" y="102" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596173777950" />
-    <state x="615" y="188" width="695" height="686" key="find.popup" timestamp="1596188545181">
+    <state x="139" y="42" width="1141" height="891" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596439895654" />
+    <state x="845" y="170" width="695" height="686" key="find.popup" timestamp="1596444584818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="615" y="188" width="695" height="686" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596188545181" />
-    <state x="544" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1596168055235">
+    <state x="845" y="170" width="695" height="686" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596444584818" />
+    <state x="544" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1596431882800">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="544" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596168055235" />
+    <state x="544" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596431882800" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/vuedemo/common/shiro/AccountRealm.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/vuedemo/controller/UserController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

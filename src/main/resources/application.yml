@@ -5,14 +5,21 @@ spring:
     url: jdbc:mysql://localhost:3306/vuedemo?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: root
+
+# MP的Mapper扫描路径
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
+
+# 后端服务端口
 server:
   port: 8081
+
+# shiro授权使用redis配置
 shiro-redis:
   enabled: true
   redis-manager:
     host: 127.0.0.1:6379
+
 # token配置
 token:
   # 令牌自定义标识

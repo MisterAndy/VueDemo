@@ -21,7 +21,7 @@
 
     <dependencies>
 
-        <!--############################# 应用层 ################################-->
+        <!--############################# 应用实体 ################################-->
         <!--springboot自动配置文件-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -49,11 +49,17 @@
             <optional>true</optional>
         </dependency>
 
-        <!--实体类校验插件-->
+        <!--jsr 303 实体校验-->
         <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-            <version>3.0.0</version>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        <!-- hibernate validator-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.0.Final</version>
         </dependency>
 
         <!--############################# 持久层 ################################-->
@@ -91,6 +97,11 @@
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
         <!--############################# 测试 ################################-->
         <!--springboot单元测试包-->
         <dependency>
@@ -114,7 +125,8 @@
         </dependency>
 
         <!--############################# 安全验证 ################################-->
-        <!-- 身份验证、授权、密码学和会话管理 -->
+        <!-- 身份验证、授权、密码和会话管理 -->
+        <!--https://github.com/alexxiyang/shiro-redis/blob/master/docs/README.md-->
         <dependency>
             <groupId>org.crazycake</groupId>
             <artifactId>shiro-redis-spring-boot-starter</artifactId>
@@ -123,11 +135,10 @@
 
         <!-- Json Web Token -->
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.10.3</version>
         </dependency>
-
 
     </dependencies>
 

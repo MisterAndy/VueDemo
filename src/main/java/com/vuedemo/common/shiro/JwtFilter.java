@@ -18,23 +18,28 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.vuedemo.common.http.Result;
-import com.vuedemo.common.util.JwtUtils;
+import com.vuedemo.common.util.TokenUtil;
 
 import cn.hutool.json.JSONUtil;
-import io.jsonwebtoken.Claims;
 
+/**
+ * 自定义Jwt过滤器，过滤验证、登录等操作成功失败时做的事情
+ */
 @Component
 public class JwtFilter extends AuthenticatingFilter {
 
     @Autowired
-    JwtUtils jwtUtils;
+    TokenUtil tokenUtil;
 
+    /**
+     * 给onAccessDenied中executeLogin方法内提供获取token方法
+     */
     @Override
     protected AuthenticationToken createToken(ServletRequest servletRequest, ServletResponse servletResponse)
         throws Exception {
 
         HttpServletRequest request = (HttpServletRequest)servletRequest;
-        String jwt = request.getHeader("Authorization");
+        String jwt = request.getHeader(tokenUtil.getHeader());// 从请求头的Authorization中获取
         if (StringUtils.isEmpty(jwt)) {
             return null;
         }
@@ -42,18 +47,19 @@ public class JwtFilter extends AuthenticatingFilter {
         return new JwtToken(jwt);
     }
 
+    /**
+     * 验证失败（isAccessAllowed为false）时自动调用
+     */
     @Override
     protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
 
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
-        String jwt = request.getHeader("Authorization");
-        if (StringUtils.isEmpty(jwt)) {
+        String token = ((HttpServletRequest)servletRequest).getHeader(tokenUtil.getHeader());
+        if (StringUtils.isEmpty(token)) {
             return true;
         } else {
 
-            // 校验jwt
-            Claims claim = jwtUtils.getClaimByToken(jwt);
-            if (claim == null || jwtUtils.isTokenExpired(claim.getExpiration())) {
+            // 校验token
+            if (!tokenUtil.verify(new JwtToken(token))) {
                 throw new ExpiredCredentialsException("token已失效，请重新登录");
             }
 
@@ -62,6 +68,9 @@ public class JwtFilter extends AuthenticatingFilter {
         }
     }
 
+    /**
+     * 登录失败自动调用
+     */
     @Override
     protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request,
         ServletResponse response) {
@@ -69,7 +78,7 @@ public class JwtFilter extends AuthenticatingFilter {
         HttpServletResponse httpServletResponse = (HttpServletResponse)response;
 
         Throwable throwable = e.getCause() == null ? e : e.getCause();
-        Result result = Result.error(throwable.getMessage());
+        Result result = Result.fail(throwable.getMessage());
         String json = JSONUtil.toJsonStr(result);
 
         try {
@@ -80,6 +89,13 @@ public class JwtFilter extends AuthenticatingFilter {
         return false;
     }
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
     @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
 

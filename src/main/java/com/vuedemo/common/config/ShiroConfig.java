@@ -28,29 +28,37 @@ public class ShiroConfig {
     @Autowired
     JwtFilter jwtFilter;
 
+    @Autowired
+    RedisSessionDAO redisSessionDAO;
+
+    @Autowired
+    RedisCacheManager redisCacheManager;
+
     @Bean
-    public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {
+    public SessionManager sessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
 
-        // inject redisSessionDAO
+        // 注入 redisSessionDAO
         sessionManager.setSessionDAO(redisSessionDAO);
         return sessionManager;
     }
 
+    // 配置核心安全事务管理器
     @Bean
-    public DefaultWebSecurityManager securityManager(AccountRealm accountRealm, SessionManager sessionManager,
-        RedisCacheManager redisCacheManager) {
+    public DefaultWebSecurityManager securityManager(AccountRealm accountRealm, SessionManager sessionManager) {
 
+        // 配置自定义Realm
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(accountRealm);
 
-        // inject sessionManager
+        // 注入 sessionManager
         securityManager.setSessionManager(sessionManager);
 
-        // inject redisCacheManager
+        // 注入 redisCacheManager
         securityManager.setCacheManager(redisCacheManager);
         return securityManager;
     }
 
+    // 注入配置好的过滤路径ShiroFilterChain
     @Bean
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
@@ -62,6 +70,7 @@ public class ShiroConfig {
         return chainDefinition;
     }
 
+    // 注入配置好的过滤工厂
     @Bean("shiroFilterFactoryBean")
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager,
         ShiroFilterChainDefinition shiroFilterChainDefinition) {
@@ -70,11 +79,11 @@ public class ShiroConfig {
 
         Map<String, Filter> filters = new HashMap<>();
         filters.put("jwt", jwtFilter);
-        shiroFilter.setFilters(filters);
+        shiroFilter.setFilters(filters);// 给过滤工厂ShiroFilter设置过滤器jwtFilter
 
+        // 使用jwtFilter过滤FilterChain中的路径
         Map<String, String> filterMap = shiroFilterChainDefinition.getFilterChainMap();
-
-        shiroFilter.setFilterChainDefinitionMap(filterMap);
+        shiroFilter.setFilterChainDefinitionMap(filterMap);// 给过滤工厂ShiroFilter设置过滤路径ShiroFilterChain
         return shiroFilter;
     }
 
