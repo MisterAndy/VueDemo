@@ -7,7 +7,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VueDemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VueDemo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/config/ShiroConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vuedemo/common/exception/GlobalExceptionHandler.java" afterDir="false" />
@@ -32,7 +31,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/JwtFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/JwtFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/JwtToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/shiro/JwtToken.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/util/JwtUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/util/ShiroUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/common/util/ShiroUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/common/util/ShiroUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/controller/BlogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/controller/BlogController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vuedemo/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vuedemo/entity/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" afterDir="false" />
@@ -173,7 +173,7 @@
       <workItem from="1596186694473" duration="2789000" />
       <workItem from="1596416231228" duration="817000" />
       <workItem from="1596417190163" duration="19653000" />
-      <workItem from="1596439631928" duration="9304000" />
+      <workItem from="1596439631928" duration="9773000" />
     </task>
     <servers />
   </component>
@@ -213,38 +213,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="569" y="240" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596438405817" />
-    <state width="1850" height="204" key="GridCell.Tab.0.bottom" timestamp="1596445167747">
+    <state width="1850" height="339" key="GridCell.Tab.0.bottom" timestamp="1596449596487">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="204" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
-    <state width="1850" height="204" key="GridCell.Tab.0.center" timestamp="1596445167747">
+    <state width="1850" height="339" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596449596487" />
+    <state width="1850" height="339" key="GridCell.Tab.0.center" timestamp="1596449596487">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="204" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
-    <state width="1850" height="204" key="GridCell.Tab.0.left" timestamp="1596445167747">
+    <state width="1850" height="339" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596449596487" />
+    <state width="1850" height="339" key="GridCell.Tab.0.left" timestamp="1596449596486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="204" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
-    <state width="1850" height="204" key="GridCell.Tab.0.right" timestamp="1596445167747">
+    <state width="1850" height="339" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596449596486" />
+    <state width="1850" height="339" key="GridCell.Tab.0.right" timestamp="1596449596487">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="204" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
-    <state width="1850" height="204" key="GridCell.Tab.1.bottom" timestamp="1596445167748">
+    <state width="1850" height="339" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596449596487" />
+    <state width="1850" height="339" key="GridCell.Tab.1.bottom" timestamp="1596449596487">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="204" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167748" />
-    <state width="1850" height="204" key="GridCell.Tab.1.center" timestamp="1596445167747">
+    <state width="1850" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596449596487" />
+    <state width="1850" height="339" key="GridCell.Tab.1.center" timestamp="1596449596487">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="204" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
-    <state width="1850" height="204" key="GridCell.Tab.1.left" timestamp="1596445167747">
+    <state width="1850" height="339" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596449596487" />
+    <state width="1850" height="339" key="GridCell.Tab.1.left" timestamp="1596449596487">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="204" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167747" />
-    <state width="1850" height="204" key="GridCell.Tab.1.right" timestamp="1596445167748">
+    <state width="1850" height="339" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596449596487" />
+    <state width="1850" height="339" key="GridCell.Tab.1.right" timestamp="1596449596487">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1850" height="204" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596445167748" />
+    <state width="1850" height="339" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596449596487" />
     <state width="1850" height="319" key="GridCell.Tab.2.bottom" timestamp="1596442073039">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
