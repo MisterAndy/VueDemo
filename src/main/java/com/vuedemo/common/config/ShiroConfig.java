@@ -28,14 +28,8 @@ public class ShiroConfig {
     @Autowired
     JwtFilter jwtFilter;
 
-    @Autowired
-    RedisSessionDAO redisSessionDAO;
-
-    @Autowired
-    RedisCacheManager redisCacheManager;
-
     @Bean
-    public SessionManager sessionManager() {
+    public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
 
         // 注入 redisSessionDAO
@@ -45,7 +39,8 @@ public class ShiroConfig {
 
     // 配置核心安全事务管理器
     @Bean
-    public DefaultWebSecurityManager securityManager(AccountRealm accountRealm, SessionManager sessionManager) {
+    public DefaultWebSecurityManager securityManager(AccountRealm accountRealm, SessionManager sessionManager,
+        RedisCacheManager redisCacheManager) {
 
         // 配置自定义Realm
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(accountRealm);

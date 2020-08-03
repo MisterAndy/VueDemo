@@ -46,7 +46,7 @@ public class AccountController {
             return Result.fail("密码不正确!");
         }
 
-        String token = tokenUtil.getToken(user.getId().toString());
+        String token = tokenUtil.generateToken(user.getId());
         String header = tokenUtil.getHeader();// 获取令牌自定义标识
         response.setHeader(header, token);
         response.setHeader("Access-control-Expose-Headers", header);

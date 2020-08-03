@@ -61,7 +61,7 @@ public class JwtFilter extends AuthenticatingFilter {
 
             // 校验token
             Claims claim = tokenUtil.getClaimByToken(token);
-            if (!tokenUtil.verify(new JwtToken(token))) {
+            if (claim == null || tokenUtil.isTokenExpired(claim.getExpiration())) {
                 throw new ExpiredCredentialsException("token已失效，请重新登录");
             }
 
