@@ -144,9 +144,9 @@ public class Result extends LinkedHashMap<String, Object> {
      *
      * @return
      */
-    public static Result error() {
+    public static Result fail() {
 
-        return Result.error("操作失败");
+        return Result.fail("操作失败");
     }
 
     /**
@@ -156,9 +156,9 @@ public class Result extends LinkedHashMap<String, Object> {
      *            返回内容
      * @return 警告消息
      */
-    public static Result error(String msg) {
+    public static Result fail(String msg) {
 
-        return Result.error(msg, null);
+        return Result.fail(msg, null);
     }
 
     /**
@@ -170,9 +170,9 @@ public class Result extends LinkedHashMap<String, Object> {
      *            数据对象
      * @return 警告消息
      */
-    public static Result error(String msg, Object data) {
+    public static Result fail(String msg, Object data) {
 
-        return response(HttpStatus.ERROR, msg, data);
+        return response(HttpStatus.BAD_REQUEST, msg, data);
     }
 
     /**
@@ -184,7 +184,7 @@ public class Result extends LinkedHashMap<String, Object> {
      *            返回内容
      * @return 警告消息
      */
-    public static Result error(int code, String msg) {
+    public static Result fail(int code, String msg) {
 
         return response(code, msg, null);
     }

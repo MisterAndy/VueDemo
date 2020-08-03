@@ -2,6 +2,9 @@ package com.vuedemo.controller;
 
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +27,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @RequiresAuthentication
     @RequestMapping("/index")
     public String index() {
 
@@ -31,11 +35,8 @@ public class UserController {
         return user.getUsername();
     }
 
-    @RequiresAuthentication
-    @RequestMapping("/getuser")
-    public Object getuser() {
-
-        User user = userService.getById(1L);
+    @PostMapping("/save")
+    public Result save(@Validated @RequestBody User user) {
         return Result.success(user);
     }
 
