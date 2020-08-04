@@ -2,6 +2,9 @@ package com.vuedemo.controller;
 
 import java.time.LocalDateTime;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,7 @@ import cn.hutool.core.util.StrUtil;
  * @author qipd
  * @since 2020-07-31
  */
+@Api(tags = "博客管理")
 @RestController
 @RequestMapping("/blog")
 public class BlogController {
@@ -33,6 +37,8 @@ public class BlogController {
     @Autowired
     private BlogService blogService;
 
+
+    @ApiOperation("博客列表")
     @GetMapping("/list")
     public Result list(@RequestParam(defaultValue = "5") Integer pageSize,
         @RequestParam(defaultValue = "1") Integer pageNum) {
@@ -44,6 +50,7 @@ public class BlogController {
         return Result.success(list);
     }
 
+    @ApiOperation("博客详情")
     @GetMapping("/detail/{id}")
     public Result detail(@PathVariable("id") Long id) {
 
@@ -54,6 +61,7 @@ public class BlogController {
         return Result.success(blog);
     }
 
+    @ApiOperation("新增修改博客")
     @RequiresAuthentication
     @GetMapping("/edit")
     public Result edit(@Validated @RequestBody Blog blog) {

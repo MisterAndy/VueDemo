@@ -7,6 +7,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.vuedemo.common.util.TokenUtil;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.ExpiredCredentialsException;
@@ -18,7 +19,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.vuedemo.common.http.Result;
-import com.vuedemo.common.util.TokenUtil;
 
 import cn.hutool.json.JSONUtil;
 import io.jsonwebtoken.Claims;
