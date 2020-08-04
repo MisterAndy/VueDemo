@@ -63,7 +63,7 @@ public class BlogController {
 
     @ApiOperation("新增修改博客")
     @RequiresAuthentication
-    @GetMapping("/edit")
+    @PostMapping("/edit")
     public Result edit(@Validated @RequestBody Blog blog) {
 
         Long currrentUserId = ((AccountProfile)SecurityUtils.getSubject().getPrincipal()).getId();
