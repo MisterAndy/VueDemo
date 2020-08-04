@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.vuedemo.common.http.Result;
-import com.vuedemo.common.util.TokenUtil;
+import com.vuedemo.common.util.Result;
+import com.vuedemo.common.util.JwtUtil;
 import com.vuedemo.dto.LoginUserDto;
 import com.vuedemo.entity.User;
 import com.vuedemo.service.UserService;
@@ -26,15 +25,18 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
-@Api(tags = "1-登录管理")
+@Api(tags = "*登录管理*")
 @RestController
 public class AccountController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private TokenUtil tokenUtil;
+    private final JwtUtil jwtUtil;
+
+    public AccountController(UserService userService, JwtUtil jwtUtil) {
+        this.userService = userService;
+        this.jwtUtil = jwtUtil;
+    }
 
     @ApiOperation("用户登录")
     @ApiImplicitParam(name = "loginUserDto", value = "用户信息", dataType = "LoginUserDto")
@@ -49,10 +51,10 @@ public class AccountController {
             return Result.fail("密码不正确!");
         }
 
-        String token = tokenUtil.generateToken(user.getId());
-        String header = tokenUtil.getHeader();// 获取令牌自定义标识
+        String token = jwtUtil.generateToken(user.getId());
+        String header = jwtUtil.getHeader();// 获取令牌自定义标识
         response.setHeader(header, token);
-        response.setHeader("Access-control-Expose-Headers", header);
+        response.setHeader("Access-control-Expose-Headers", header);//跨域请求结果中header的权限控制
 
         Map<Object, Object> map = MapUtil.builder().put("id", user.getId()).put("username", user.getUsername())
             .put("avatar", user.getAvatar()).put("email", user.getEmail()).map();

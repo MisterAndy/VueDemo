@@ -1,27 +1,24 @@
 package com.vuedemo.common.shiro;
 
-import java.io.IOException;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSONUtil;
+import com.google.gson.Gson;
+import com.vuedemo.common.constant.HttpStatus;
+import com.vuedemo.common.util.HttpContextUtil;
+import com.vuedemo.common.util.Result;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
+import org.apache.shiro.web.util.WebUtils;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.vuedemo.common.util.TokenUtil;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.ExpiredCredentialsException;
-import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
-import org.apache.shiro.web.util.WebUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.vuedemo.common.http.Result;
-
-import cn.hutool.json.JSONUtil;
-import io.jsonwebtoken.Claims;
+import java.io.IOException;
 
 /**
  * 自定义Jwt过滤器，过滤验证、登录等操作成功失败时做的事情
@@ -29,8 +26,8 @@ import io.jsonwebtoken.Claims;
 @Component
 public class JwtFilter extends AuthenticatingFilter {
 
-    @Autowired
-    TokenUtil tokenUtil;
+    public JwtFilter(){
+    }
 
     /**
      * 给onAccessDenied中executeLogin方法内提供获取token方法
@@ -38,14 +35,23 @@ public class JwtFilter extends AuthenticatingFilter {
     @Override
     protected AuthenticationToken createToken(ServletRequest servletRequest, ServletResponse servletResponse)
         throws Exception {
+        //获取请求token
+        String token = getRequestToken((HttpServletRequest) servletRequest);
 
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
-        String jwt = request.getHeader(tokenUtil.getHeader());// 从请求头的Authorization中获取
-        if (StringUtils.isEmpty(jwt)) {
+        if (StringUtils.isEmpty(token)) {
             return null;
         }
 
-        return new JwtToken(jwt);
+        return new JwtToken(token);
+    }
+
+    @Override
+    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
+        if(((HttpServletRequest) request).getMethod().equals(RequestMethod.OPTIONS.name())){
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -54,18 +60,12 @@ public class JwtFilter extends AuthenticatingFilter {
     @Override
     protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
 
-        String token = ((HttpServletRequest)servletRequest).getHeader(tokenUtil.getHeader());
+        String token = getRequestToken((HttpServletRequest) servletRequest);
         if (StringUtils.isEmpty(token)) {
+
             return true;
-        } else {
-
-            // 校验token
-            Claims claim = tokenUtil.getClaimByToken(token);
-            if (claim == null || tokenUtil.isTokenExpired(claim.getExpiration())) {
-                throw new ExpiredCredentialsException("token已失效，请重新登录");
-            }
-
-            // 执行登录
+        }
+        else{
             return executeLogin(servletRequest, servletResponse);
         }
     }
@@ -89,6 +89,21 @@ public class JwtFilter extends AuthenticatingFilter {
 
         }
         return false;
+    }
+
+    /**
+     * 获取请求的token
+     */
+    private String getRequestToken(HttpServletRequest httpRequest){
+        //从header中获取token
+        String token = httpRequest.getHeader("Authorization");
+
+        //如果header中不存在token，则从参数中获取token
+        if(StrUtil.isEmpty(token)){
+            token = httpRequest.getParameter("Authorization");
+        }
+
+        return token;
     }
 
     /**

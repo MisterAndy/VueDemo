@@ -17,8 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Data
 @Component
-@ConfigurationProperties(prefix = "token")
-public class TokenUtil {
+@ConfigurationProperties(prefix = "jwt")
+public class JwtUtil {
 
     private String header;
     private String secret;// 密钥盐
@@ -52,5 +52,29 @@ public class TokenUtil {
      */
     public boolean isTokenExpired(Date expiration) {
         return expiration.before(new Date());
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
+    public long getExpire() {
+        return expire;
+    }
+
+    public void setExpire(long expire) {
+        this.expire = expire;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
     }
 }

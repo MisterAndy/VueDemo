@@ -25,9 +25,6 @@ import com.vuedemo.common.shiro.JwtFilter;
 @Configuration
 public class ShiroConfig {
 
-    @Autowired
-    JwtFilter jwtFilter;
-
     @Bean
     public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
@@ -60,7 +57,15 @@ public class ShiroConfig {
 
         Map<String, String> filterMap = new LinkedHashMap<>();
 
-        filterMap.put("/**", "jwt");
+        //anon为不过滤
+        filterMap.put("/login", "anon");
+        filterMap.put("/swagger/**", "anon");
+        filterMap.put("/v2/api-docs", "anon");
+        filterMap.put("/swagger-ui.html", "anon");
+        filterMap.put("/swagger-resources/**", "anon");
+
+        filterMap.put("/**", "jwt");//使用自定义名为jwt的过滤器过滤所有文件
+
         chainDefinition.addPathDefinitions(filterMap);
         return chainDefinition;
     }
@@ -73,7 +78,9 @@ public class ShiroConfig {
         shiroFilter.setSecurityManager(securityManager);
 
         Map<String, Filter> filters = new HashMap<>();
-        filters.put("jwt", jwtFilter);
+
+        // 这里不能注入的jwtFilter，不然所有路径都被jwtFilter拦截
+        filters.put("jwt", new JwtFilter());//设置名为jwt的过滤器
         shiroFilter.setFilters(filters);// 给过滤工厂ShiroFilter设置过滤器jwtFilter
 
         // 使用jwtFilter过滤FilterChain中的路径

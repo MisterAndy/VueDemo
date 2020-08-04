@@ -1,4 +1,4 @@
-package com.vuedemo.common.http;
+package com.vuedemo.common.util;
 
 import java.util.LinkedHashMap;
 

@@ -3,17 +3,15 @@ package com.vuedemo.controller;
 import java.time.LocalDateTime;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.vuedemo.common.http.Result;
+import com.vuedemo.common.util.Result;
 import com.vuedemo.common.shiro.AccountProfile;
 import com.vuedemo.entity.Blog;
 import com.vuedemo.service.BlogService;
@@ -34,9 +32,11 @@ import cn.hutool.core.util.StrUtil;
 @RequestMapping("/blog")
 public class BlogController {
 
-    @Autowired
-    private BlogService blogService;
+    private final BlogService blogService;
 
+    public BlogController(BlogService blogService) {
+        this.blogService = blogService;
+    }
 
     @ApiOperation("博客列表")
     @GetMapping("/list")

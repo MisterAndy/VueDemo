@@ -1,5 +1,6 @@
 package com.vuedemo.common.shiro;
 
+import com.sun.tools.javac.comp.Todo;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -7,7 +8,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.vuedemo.common.util.TokenUtil;
+import com.vuedemo.common.util.JwtUtil;
 import com.vuedemo.entity.User;
 import com.vuedemo.service.UserService;
 
@@ -16,11 +17,14 @@ import cn.hutool.core.bean.BeanUtil;
 @Component
 public class AccountRealm extends AuthorizingRealm {
 
-    @Autowired
-    TokenUtil tokenUtil;
+    final JwtUtil jwtUtil;
 
-    @Autowired
-    UserService userService;
+    final UserService userService;
+
+    public AccountRealm(JwtUtil jwtUtil, UserService userService) {
+        this.jwtUtil = jwtUtil;
+        this.userService = userService;
+    }
 
     /**
      * 使Realm支持JwtToken
@@ -37,6 +41,8 @@ public class AccountRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 
+        //TODO 增加用户菜单权限管理后完善
+
         return null;
     }
 
@@ -46,9 +52,10 @@ public class AccountRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
+        //TODO 待token对应人员入库后从数据库查询获取token
         JwtToken jwtToken = (JwtToken)token;
 
-        String userId = tokenUtil.getClaimByToken((String)jwtToken.getPrincipal()).getSubject();
+        String userId = jwtUtil.getClaimByToken((String)jwtToken.getPrincipal()).getSubject();
 
         User user = userService.getById(Long.valueOf(userId));
         if (user == null) {

@@ -1,11 +1,10 @@
 package com.vuedemo.controller;
 
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.vuedemo.common.http.Result;
+import com.vuedemo.common.util.Result;
 import com.vuedemo.entity.User;
 import com.vuedemo.service.UserService;
 
@@ -25,8 +24,11 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @ApiOperation("获取用户名称")
     @RequiresAuthentication

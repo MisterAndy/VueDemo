@@ -20,12 +20,12 @@ shiro-redis:
   redis-manager:
     host: 127.0.0.1:6379
 
-# token配置
-token:
+# jwt配置
+jwt:
   # 令牌自定义标识
-  header: Authorization
+  header: token
   # 令牌密钥
-  secret: abcdefghijklmnopqrstuvwxyz
+  secret: f4e2e5203434njtdkj7cde581c0f9eb5
   # 令牌有效期（默认30分钟）
   expire: 30
 
